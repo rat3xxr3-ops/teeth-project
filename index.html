@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المشروع البرمجي - تشريح الأسنان</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b132b;
+            color: #f8fafc;
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px 20px 20px;
+            background: linear-gradient(135deg, #1c2541, #0b132b);
+            border-radius: 16px;
+            margin-bottom: 25px;
+            border: 1px solid #3a506b;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: #64dfdf;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 1rem;
+            color: #94a3b8;
+        }
+
+        /* أزرار التنقل العلوية */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background-color: #1c2541;
+            color: #94a3b8;
+            border: 1px solid #3a506b;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: #3a506b;
+            color: #ffffff;
+        }
+
+        /* الزر النشط */
+        .tab-btn.active {
+            background-color: #64dfdf;
+            color: #0b132b;
+            border-color: #64dfdf;
+            box-shadow: 0 0 15px rgba(100, 223, 223, 0.4);
+        }
+
+        /* حاوية الصفحات */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* محتوى الصفحة (يُخفى افتراضياً) */
+        .page-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        /* إظهار الصفحة النشطة فقط */
+        .page-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background-color: #1c2541;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #3a506b;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .img-container {
+            width: 100%;
+            background-color: #ffffff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid #3a506b;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        .card-content h2 {
+            color: #64dfdf;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+            border-bottom: 1px solid #3a506b;
+            padding-bottom: 10px;
+        }
+
+        .card-content p {
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            white-space: pre-line;
+            line-height: 1.9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #3a506b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر الرئيسي -->
+    <header>
+        <h1>عنوان المشروع</h1>
+        <p>اختر السنة من الأزرار العلوية لعرض التفاصيل والشرح الخاص بها</p>
+    </header>
+
+    <!-- الأزرار العلوية للسنين -->
+    <div class="tabs-container">
+        <button class="tab-btn active" onclick="openYear('year1', this)">السنة الأولى</button>
+        <button class="tab-btn" onclick="openYear('year2', this)">السنة الثانية</button>
+        <button class="tab-btn" onclick="openYear('year3', this)">السنة الثالثة</button>
+    </div>
+
+    <!-- حاوية المحتوى -->
+    <div class="container">
+
+        <!-- محتوى السنة الأولى -->
+        <div id="year1" class="page-content active">
+            <div class="card">
+                <div class="img-container">
+                    <img src="img1.jpg" alt="صورة السنة الأولى">
+                </div>
+                <div class="card-content">
+                    <h2>تفاصيل السنة الأولى</h2>
+                    <p>اكتب هنا الكلام والشرح التفصيلي الخاص بالسنة الأولى.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- محتوى السنة الثانية -->
+        <div id="year2" class="page-content">
+            <div class="card">
+                <div class="img-container">
+                    <img src="img2.jpg" alt="صورة السنة الثانية">
+                </div>
+                <div class="card-content">
+                    <h2>تفاصيل السنة الثانية</h2>
+                    <p>اكتب هنا الكلام والشرح التفصيلي الخاص بالسنة الثانية.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- محتوى السنة الثالثة -->
+        <div id="year3" class="page-content">
+            <div class="card">
+                <div class="img-container">
+                    <img src="img3.jpg" alt="صورة السنة الثالثة">
+                </div>
+                <div class="card-content">
+                    <h2>تفاصيل السنة الثالثة</h2>
+                    <p>اكتب هنا الكلام والشرح التفصيلي الخاص بالسنة الثالثة.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+       
+    </footer>
+
+    <!-- السكريبت المسؤول عن التنقل بين الأزرار -->
+    <script>
+        function openYear(yearId, btnElement) {
+            // إخفاء جميع محتويات الصفحات
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // إزالة حالة النشاط من كل الأزرار
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // إظهار الصفحة المطلوبة وتفعيل زرها
+            document.getElementById(yearId).classList.add('active');
+            btnElement.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
